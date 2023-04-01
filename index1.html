@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_1</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #e4e4e4;
+      }
+      #content {
+        margin: 30px;
+        padding: 15px;
+        font-family: "Roboto Condensed", sans-serif;
+        background-color: rgba(17, 17, 17, 80%);
+        width: fit-content;
+        border-radius: 20px;
+        color: #e4e4e4;
+      }
+      .exercise {
+        font-size: 21px;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgba(84, 84, 84, 80%);
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 32px;
+        font-weight: 700;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      .exercise > div {
+        font-weight: 300;
+        margin-top: 10px;
+      }
+      .exercise:last-child {
+        margin-bottom: 15px;
+      }
+    </style>
+    <script>
+      document.write(
+        "<div id='content'><p>Задачи</p><div class='exercise'>1. Создать массив treug 'треугольных' чисел вида n(n + 1) / 2 (n = 1, 2, ..., 10) и вывести его значения на экран.<div>"
+      );
+
+      let treug = [];
+      for (let i = 0; i < 10; i++) {
+        treug[i] = ((i + 1) * (i + 2)) / 2;
+        document.write(treug[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>2. Создать массив kvd квадратов натуральных чисел от 1 до 10 и вывести его значения на экран.<div>"
+      );
+
+      let kvd = [];
+      for (let i = 0; i < 10; i++) {
+        kvd[i] = Math.pow(i + 1, 2);
+        document.write(kvd[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>3. Объединить первые 2 массива в массив rez и вывести результат на экран.<div>"
+      );
+
+      let rez = [];
+      for (let i = 0; i < treug.length; i++) {
+        rez[i] = treug[i];
+        document.write(rez[i] + "&ensp;");
+      }
+
+      for (let i = treug.length; i < treug.length + kvd.length; i++) {
+        rez[i] = kvd[i - treug.length];
+        document.write(rez[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>4. Отсортировать массив rez в обратном порядке и вывести результат на экран.<div>"
+      );
+
+      for (let i = rez.length - 1; i >= 0; i--) {
+        document.write(rez[i] + "&ensp;");
+      }
+
+      document.write("</div></div></div>");
+    </script>
+  </body>
+</html>

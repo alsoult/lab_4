@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_4</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #e4e4e4;
+      }
+      #content {
+        margin: 30px;
+        padding: 15px;
+        font-family: "Roboto Condensed", sans-serif;
+        background-color: rgba(17, 17, 17, 80%);
+        width: fit-content;
+        border-radius: 20px;
+        color: #e4e4e4;
+      }
+      .exercise {
+        font-size: 21px;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgba(84, 84, 84, 80%);
+        margin-bottom: 7px;
+      }
+      p:first-child {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 15px 15px 0px 15px;
+        border-bottom: 1px solid rgba(228, 228, 228, 0.462);
+      }
+      #write {
+        font-size: 21px;
+        margin: 10px 15px 10px 15px;
+      }
+      .exercise > div {
+        font-weight: 300;
+        margin-top: 5px;
+      }
+      .exercise:last-child {
+        margin-bottom: 15px;
+      }
+    </style>
+    <script>
+      let fruits = ["apple", "pineapple", "mango", "melon", "grape"];
+      let citrus = ["orange", "lemon", "lime"];
+
+      document.write(
+        "<div id='content'><p>Задачи</p><p id='write'>Вывести:</p><div class='exercise'>а) Массив fruits.<div>"
+      );
+
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>б) Массив citrus.<div>"
+      );
+
+      for (let i = 0; i < citrus.length; i++) {
+        document.write(citrus[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>в) Объединённый массив fruits.<div>"
+      );
+
+      for (let i = 0; i < citrus.length; i++) {
+        fruits.push(citrus[i]);
+      }
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>г) Массив fruits, в котором после mango вставлены: pear, cherry, plum, raspberry, strawberry.<div>"
+      );
+
+      fruits.splice(3, 0, "pear", "cherry", "plum", "raspberry", "strawberry");
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>д) Массив fruits, в котором удалены последние 3 элемента.<div>"
+      );
+
+      fruits.splice(10, 3);
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>е) Отсортированный в алфавитном порядке массив fruits.<div>"
+      );
+
+      fruits.sort();
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>ж) Массив fruits в обратном алфавитном порядке.<div>"
+      );
+
+      fruits.reverse();
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>з) Массив fruits, отсортированный по длине слов.<div>"
+      );
+
+      fruits.sort((firstElm, secElm) => firstElm.length - secElm.length);
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "&ensp;");
+      }
+
+      document.write("</div></div></div>");
+    </script>
+  </body>
+</html>

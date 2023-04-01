@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_3</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #e4e4e4;
+      }
+      #content {
+        margin: 30px;
+        padding: 15px;
+        font-family: "Roboto Condensed", sans-serif;
+        background-color: rgba(17, 17, 17, 80%);
+        width: fit-content;
+        border-radius: 20px;
+        color: #e4e4e4;
+      }
+      .exercise {
+        font-size: 21px;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgba(84, 84, 84, 80%);
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 32px;
+        font-weight: 700;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      .exercise > div {
+        font-weight: 300;
+        margin-top: 10px;
+      }
+      .exercise:last-child {
+        margin-bottom: 15px;
+      }
+      span {
+        text-decoration: underline 1.5px;
+      }
+    </style>
+    <script>
+      let array = [];
+      let B,
+        numOrNot,
+        sum = 0,
+        count = 0,
+        countLessNum = 0;
+      do {
+        numOrNot = false;
+        B = prompt(
+          "Введите значение B для подсчёта количества чисел массива, меньших B:",
+          ""
+        );
+        try {
+          if (isNaN(B)) {
+            numOrNot = true;
+            throw new Error(
+              "Введено нечисловое значение. Необходимо ввести число."
+            );
+          }
+          if (B == "") {
+            numOrNot = true;
+            throw new Error(
+              "Поле ввода не содержит значения. Необходимо ввести число."
+            );
+          }
+          if (B == null) {
+            break;
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+      } while (numOrNot);
+
+      if (B == null) {
+        document.write("");
+      } else {
+        B = parseFloat(B);
+        document.write(
+          "<div id='content'><p>Задачи</p><div class='exercise'>1. Сформировать одномерный массив (не менее 15 элементов).<div>"
+        );
+
+        for (let i = 0; i < 15; i++) {
+          array[i] = Math.floor(
+            (Math.random() < 0.5 ? -1 : 1) * Math.random() * 100
+          );
+          document.write(array[i] + "&ensp;");
+        }
+
+        document.write(
+          `</div></div><div class='exercise'>2. Найти среднее арифметическое положительных чисел, стоящих на нечётных местах, и количество чисел, меньших B = ${B}.<div>`
+        );
+
+        array.forEach((element, index) => {
+          if (element > 0 && (index + 1) % 2 == 1) {
+            sum += element;
+            count++;
+          }
+          if (element < B) {
+            countLessNum++;
+          }
+        });
+
+        if (isNaN(sum / count)) {
+          document.write(
+            `Среднее арифметическое положительных чисел, стоящих на нечётных местах:&ensp;<span>0</span></div><div>Количество чисел, меньших B = ${B}:&ensp;<span>${countLessNum}</span></div></div></div>`
+          );
+        } else {
+          document.write(
+            `Среднее арифметическое положительных чисел, стоящих на нечётных местах:&ensp;<span>${(
+              sum / count
+            ).toFixed(
+              3
+            )}</span></div><div>Количество чисел, меньших B = ${B}:&ensp;<span>${countLessNum}</span></div></div></div>`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

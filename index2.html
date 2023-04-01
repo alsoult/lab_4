@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_2</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #e4e4e4;
+      }
+      #content {
+        margin: 30px;
+        padding: 15px;
+        font-family: "Roboto Condensed", sans-serif;
+        background-color: rgba(17, 17, 17, 80%);
+        width: fit-content;
+        border-radius: 20px;
+        color: #e4e4e4;
+      }
+      .exercise {
+        font-size: 21px;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgba(84, 84, 84, 80%);
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 32px;
+        font-weight: 700;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      .exercise > div {
+        font-weight: 300;
+        margin-top: 10px;
+      }
+      .exercise:last-child {
+        margin-bottom: 15px;
+      }
+    </style>
+    <script>
+      document.write(
+        "<div id='content'><p>Задачи</p><div class='exercise'>1. Сформировать одномерный массив (не менее 15 элементов).<div>"
+      );
+
+      let array = [],
+        sumFirstAndLast = 0;
+      for (let i = 0; i < 15; i++) {
+        array[i] = Math.floor(Math.random() * 100) + 1;
+        document.write(array[i] + "&ensp;");
+      }
+
+      document.write(
+        "</div></div><div class='exercise'>2. Найти минимальный элемент и заменить его на сумму первого и последнего элементов.<div>"
+      );
+
+      sumFirstAndLast += array[0] + array[array.length - 1];
+      let min = array[0],
+        indexOfMin;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) {
+          min = array[i];
+          indexOfMin = i;
+        }
+      }
+      for (let i = 0; i < array.length; i++) {
+        if (indexOfMin == i) {
+          array[i] = sumFirstAndLast;
+        }
+        document.write(array[i] + "&ensp;");
+      }
+
+      document.write("</div></div></div>");
+    </script>
+  </body>
+</html>
